@@ -142,3 +142,24 @@ function getBooks() {
 function getBook(id) {
   return data.find(d => d.id === id);
 }
+
+//Rest operator
+const book = getBook(1);
+
+const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
+  book;
+
+const [primaryGenre, secondaryGenre, ...otherGenre] = genres;
+console.log(primaryGenre, secondaryGenre, otherGenre);
+
+// spread operator = take value out of array and place them one by one
+const newGenres = [...genres, "lollll"];
+console.log(newGenres);
+
+const updatedBook = {
+  ...book, // adding a new proprety
+  moviePublicationDate: "2001-12-12",
+  //overwritting an existing proprety
+  pages: 1210,
+};
+updatedBook;
