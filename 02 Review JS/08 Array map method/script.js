@@ -149,5 +149,11 @@ const books = getBooks();
 const x = [1, 2, 3, 4, 5].map(el => el * 2);
 console.log(x);
 
-const titles = books.map(book => book.title);
+const titles = books.map((book) /* argument to the function */ => book.title);
 titles;
+
+const essentialsData = books.map(book => ({
+  title: book.title,
+  author: book.author,
+}));
+essentialsData;
