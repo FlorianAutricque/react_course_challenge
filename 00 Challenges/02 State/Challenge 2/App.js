@@ -12,15 +12,10 @@ export default function App() {
 function Counter() {
   const [step, setStep] = useState(1);
   const [count, setCount] = useState(0);
+
   const date = new Date();
   date.setDate(date.getDate() * count);
 
-  function handleNext() {
-    setStep(step => step + 1);
-  }
-  function handlePrevious() {
-    setStep(step => step - 1);
-  }
   function handleNextCount() {
     setCount(count => count + step);
   }
@@ -28,31 +23,50 @@ function Counter() {
     setCount(count => count - step);
   }
 
-  // function muliplicator () {
-
-  // }
+  function handleReset() {
+    setCount(0);
+    setStep(1);
+  }
 
   return (
     <div>
       <div className="container">
-        <button onClick={handlePrevious}>-</button>
-        <h2> Step: {step} </h2>
-        <button onClick={handleNext}>+</button>
+        <input
+          type="range"
+          min="0"
+          max="10"
+          value={step}
+          onChange={event => setStep(Number(event.target.value))}
+        />
+        <h2>{step} </h2>
       </div>
+
       <div className="container">
         <button onClick={handlePreviousCount}>-</button>
-        <h2> Count: {count} </h2>
+
+        <input
+          type="text"
+          placeholder="1"
+          value={count}
+          onChange={event => setCount(Number(event.target.value))}
+        />
+
         <button onClick={handleNextCount}>+</button>
       </div>
 
       <p>
         {count === 0
-          ? "Today is"
+          ? "Today is "
           : count < 0
           ? `${count} days from today is`
           : `${Math.abs(count)} days ago was `}
         {date.toDateString()}
       </p>
+      {count !== 0 || step !== 1 ? (
+        <div>
+          <button onClick={handleReset}> Reset </button>
+        </div>
+      ) : null}
     </div>
   );
 }
