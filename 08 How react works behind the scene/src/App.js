@@ -39,7 +39,10 @@ function Tabbed({ content }) {
       </div>
 
       {activeTab <= 2 ? (
-        <TabContent item={content.at(activeTab)} />
+        <TabContent
+          item={content.at(activeTab)}
+          key={content.at(activeTab).summary} // reload to 0 the number of like because it gives a unique key to each active tab
+        />
       ) : (
         <DifferentContent />
       )}
