@@ -69,6 +69,21 @@ function TabContent({ item }) {
     setLikes(likes + 1);
   }
 
+  function handleTripleInc() {
+    setLikes(likes => likes + 1);
+    setLikes(likes => likes + 1);
+    setLikes(likes => likes + 1);
+  }
+
+  function handleUndo() {
+    setShowDetails(true);
+    setLikes(0);
+  }
+
+  function handleDoLater() {
+    setTimeout(handleUndo, 2000);
+  }
+
   return (
     <div className="tab-content">
       <h4>{item.summary}</h4>
@@ -82,13 +97,13 @@ function TabContent({ item }) {
         <div className="hearts-counter">
           <span>{likes} ❤️</span>
           <button onClick={handleInc}>+</button>
-          <button>+++</button>
+          <button onClick={handleTripleInc}>+++</button>
         </div>
       </div>
 
       <div className="tab-undo">
-        <button>Undo</button>
-        <button>Undo in 2s</button>
+        <button onClick={handleUndo}>Undo</button>
+        <button onClick={handleDoLater}>Undo in 2s</button>
       </div>
     </div>
   );
@@ -101,3 +116,39 @@ function DifferentContent() {
     </div>
   );
 }
+
+/*
+SUMMARY:
+React is a library (view). You cannot do everything with it.
+You need 3rd party library for http request for example or styling.
+thats why we have framework on top of the library that choose for us which third
+party library to choose from. Nextjs for example is a framework
+
+
+COMPONENT:
+blueprint for a piece of UI that will exist on screen
+When we use a component, react => component instance containing props, state ...
+A component instance rendered a react element.
+
+RENDERING:
+calling component functions. Each time a component insance is rendered and re-renderd
+the function is called again.
+only the initial app render and state updates can cause a render.
+
+KEY PROP:
+allow react to distinguish between mutiple component instances. Changing key
+between renders isa trick to reset state
+
+Never declare a new component inside another component !
+
+RENDER LOGIC:
+logic that produces JSX
+
+ReactDOM :
+update the DOM in the commit phase. It's not react that does that. It's this
+"renderer"
+
+
+
+
+*/
