@@ -211,9 +211,12 @@ body {
 .btn-delete {
   position: absolute;
   right: 2.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   height: 1.8rem;
-  aspect-ratio: 1;
+  aspect-ratio: 1/1;
   border-radius: 50%;
   border: none;
   background-color: var(--color-red);
