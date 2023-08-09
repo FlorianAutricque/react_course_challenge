@@ -5,6 +5,7 @@ import Message from "./Message";
 
 function CityList({ cities, isLoading }) {
   if (isLoading) return <Spinner />;
+  console.log(cities);
 
   if (!cities.length)
     return (
