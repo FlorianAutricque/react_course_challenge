@@ -10,10 +10,9 @@ function BackButton() {
       onClick={e => {
         e.preventDefault();
         navigate(-1);
-        console.log("cli");
       }}
     >
-      &larr; back
+      &larr; Back
     </Button>
   );
 }
