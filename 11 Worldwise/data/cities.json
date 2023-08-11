@@ -1,40 +1,40 @@
 {
   "cities": [
     {
-      "cityName": "Lisbon",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2027-10-31T15:59:59.138Z",
-      "notes": "My favorite city so far!",
+      "cityName": "Montreal",
+      "country": "Canada",
+      "emoji": "🇨🇦",
+      "date": "2023-08-11T16:07:51.471Z",
+      "notes": "It was amazing",
       "position": {
-        "lat": 38.727881642324164,
-        "lng": -9.140900099907554
+        "lat": "45.51227350805208",
+        "lng": "-73.61663818359376"
       },
-      "id": 73930385
+      "id": 1
     },
     {
-      "cityName": "Madrid",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2027-07-15T08:22:53.976Z",
-      "notes": "",
+      "cityName": "Washington",
+      "country": "United States of America (the)",
+      "emoji": "🇺🇸",
+      "date": "2023-08-11T16:08:53.519Z",
+      "notes": "Lovely",
       "position": {
-        "lat": 40.46635901755316,
-        "lng": -3.7133789062500004
+        "lat": "38.84221789708205",
+        "lng": "-77.00317382812501"
       },
-      "id": 17806751
+      "id": 2
     },
     {
-      "cityName": "Berlin",
-      "country": "Germany",
-      "emoji": "🇩🇪",
-      "date": "2027-02-12T09:24:11.863Z",
-      "notes": "Amazing 😃",
+      "cityName": "Pompignac",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2023-08-11T16:09:15.199Z",
+      "notes": "Perfect",
       "position": {
-        "lat": 52.53586782505711,
-        "lng": 13.376933665713324
+        "lat": "44.84319403750405",
+        "lng": "-0.43945312500000006"
       },
-      "id": 98443197
+      "id": 3
     }
   ]
 }
