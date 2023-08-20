@@ -7,6 +7,9 @@ import FileInput from "../../ui/FileInput";
 import Textarea from "../../ui/Textarea";
 
 import { useForm } from "react-hook-form";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { createCabin } from "../../services/apiCabins";
+import { toast } from "react-hot-toast";
 
 const FormRow = styled.div`
   display: grid;
@@ -45,9 +48,23 @@ const Error = styled.span`
 `;
 
 function CreateCabinForm() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
-  function onSubmit() {}
+  const queryClient = useQueryClient();
+
+  const { mutate, isLoading: isCreating } = useMutation({
+    mutationFn: createCabin,
+    onSuccess: () => {
+      toast.success("New cabin successfully created");
+      queryClient.invalidateQueries({ queryKey: ["cabins"] });
+      reset();
+    },
+    onError: err => toast.error(err.message),
+  });
+
+  function onSubmit(data) {
+    mutate(data);
+  }
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -102,7 +119,7 @@ function CreateCabinForm() {
         <Button variation="secondary" type="reset">
           Cancel
         </Button>
-        <Button>Edit cabin</Button>
+        <Button disabled={isCreating}>Edit cabin</Button>
       </FormRow>
     </Form>
   );
