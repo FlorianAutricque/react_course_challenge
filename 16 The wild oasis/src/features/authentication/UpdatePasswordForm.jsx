@@ -19,7 +19,7 @@ function UpdatePasswordForm() {
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <FormRow
-        label="Password (min 8 characters)"
+        label=" New password (min 6 char.)"
         error={errors?.password?.message}
       >
         <Input
@@ -30,8 +30,8 @@ function UpdatePasswordForm() {
           {...register("password", {
             required: "This field is required",
             minLength: {
-              value: 8,
-              message: "Password needs a minimum of 8 characters",
+              value: 6,
+              message: "Password needs a minimum of 6 characters",
             },
           })}
         />
@@ -48,7 +48,7 @@ function UpdatePasswordForm() {
           disabled={isUpdating}
           {...register("passwordConfirm", {
             required: "This field is required",
-            validate: (value) =>
+            validate: value =>
               getValues().password === value || "Passwords need to match",
           })}
         />
