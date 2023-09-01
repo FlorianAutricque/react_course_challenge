@@ -31,7 +31,7 @@ const StyledNavLink = styled(NavLink)`
   /* This works because react-router places the active class on the active NavLink */
   &:hover,
   &:active,
-  &.active:link,
+  &.active:link, // this
   &.active:visited {
     color: var(--color-grey-800);
     background-color: var(--color-grey-50);
